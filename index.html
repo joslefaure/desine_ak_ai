@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>QuickDraw CNN Demo</title>
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+    <!-- bs4 css -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+
+    <!-- css pie -->
+    <link rel="stylesheet" href="pie.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- TensorFlow.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+
+    <!-- canvas script -->
+    <script src="fabric.js"></script>
+
+    <!-- main script -->
+    <script src="main.js"></script>
+
+    <!-- main css -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.3.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.3.3/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#"
+        ><h1>QuickDraw CNN<small> Demo</small></h1></a
+      >
+    </nav>
+    <div class="container-fluid">
+      <blockquote class="blockquote text-justify" style="margin: 30px">
+        <p>
+          This is a simple demo using the quick draw
+          <a href="https://github.com/googlecreativelab/quickdraw-dataset">
+            dataset</a
+          >. More classes will be added soon.
+        </p>
+        <footer class="blockquote-footer">
+          <a href="https://github.com/joslefaure">By Gueter Josmy Faure</a>
+          <!-- <footer class="blockquote-footer">
+          (Based on: 
+          <a href="https://github.com/zaidalyafeai/zaidalyafeai.github.io/tree/master/sketcher">
+            zaidalyafeai
+          </a>
+          )
+        </footer> -->
+        </footer>
+      </blockquote>
+    </div>
+
+    <div class="row">
+      <div class="col" style="margin-left: 100px">
+        <h4 id="status">Loading Model...</h4>
+        <canvas
+          id="canvas"
+          width="300"
+          height="300"
+          class="canvas"
+          style="border: 1px solid #b9bfc9; margin-top: 25px"
+        ></canvas>
+        <div class="btn-group" style="margin-top: 40px">
+          <input
+            type="range"
+            min="5"
+            max="20"
+            value="10"
+            class="slider"
+            id="myRange"
+            style="margin-top: 20px"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="erase()"
+            style="margin-left: 10px"
+            disabled
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+      <div class="col">
+        <section style="margin-top: 120px">
+          <div class="pieID pie"></div>
+          <ul class="pieID legend">
+            <li>
+              <em id="sym1"></em>
+              <span id="prob1"></span>
+            </li>
+            <li>
+              <em id="sym2"></em>
+              <span id="prob2"></span>
+            </li>
+            <li>
+              <em id="sym3"></em>
+              <span id="prob3"></span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+  <script src="pie.js"></script>
+  <script>
+    console.log("starting");
+    start("en");
+  </script>
+</html>
